@@ -30,7 +30,7 @@ configuration, profiles and other declarations;
 - `forms` - directory with [custom forms](../getting-started/forms.html#custom).
 
 Anything else is copied as-is and available for the process.
-[Plugins](../plugins/index.html) can require other files to be present in
+[Plugins](../plugins-v2/index.html) can require other files to be present in
 the working directory.
 
 The same structure should be used when storing your project in a Git repository.
@@ -252,7 +252,7 @@ execution in addition to the defined [variables](#variables):
   [session token](../getting-started/security.html#using-session-tokens) can be
   used to call Concord API from flows.
 
-LDAP attributes must be white-listed in [the configuration](./configuration.html#ldap).
+LDAP attributes must be allowed in [the configuration](./configuration.html#server-configuration-file).
 
 **Note:** only the processes started using [the browser link](../api/process.html#browser)
 provide the `requestInfo` variable. In other cases (e.g. processes

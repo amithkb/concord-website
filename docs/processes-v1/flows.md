@@ -2,6 +2,7 @@
 layout: wmt/docs
 title:  Flows
 side-navigation: wmt/docs-navigation.html
+deprecated: true
 ---
 
 # {{ page.title }}
@@ -58,7 +59,7 @@ the description of available steps and syntax constructs.
 ### Expressions
 
 Expressions must be valid
-[Java Expresssion Language EL 3.0](https://github.com/javaee/el-spec) syntax
+[Java Expression Language EL 3.0](https://github.com/javaee/el-spec) syntax
 and can be simple evaluations or perform actions by invoking more complex code.
 
 Short form:
@@ -394,10 +395,15 @@ flows:
   - ${sleep.ms(60000)}
 
   onCancel:
-  - log: "Pack your bags, boys. Show's cancelled"
+  - log: "Pack your bags. Show's cancelled"
 ```
 
-Similarly, `onFailure` flow is executed if a process crashes:
+**Note:** `onCancel` handler processes are dispatched immediately when the process
+cancel request is sent. Variables set at runtime may not have been saved to the
+process state in the database and therefore may be unavailable or stale in the
+handler process.
+
+Similarly, `onFailure` flow is executed if a process crashes (moves into the `FAILED` state):
 
 ```yaml
 flows:
@@ -413,7 +419,7 @@ In both cases, the server starts a _child_ process with a copy of
 the original process state and uses `onCancel` or `onFailure` as an
 entry point.
 
-**Note:** `onCancel` and `onFailure` handlers receive the last known
+**Note:** `onCancel` and `onFailure` handlers receive the _last known_
 state of the parent process' variables. This means that changes in
 the process state are visible to the _child_ processes:
 

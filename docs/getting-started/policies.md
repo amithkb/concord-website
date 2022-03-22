@@ -2,6 +2,7 @@
 layout: wmt/docs
 title:  Policies
 side-navigation: wmt/docs-navigation.html
+description: Getting started with Policies
 ---
 
 # {{ page.title }}
@@ -71,7 +72,7 @@ and free-form group of attributes:
 
 Here's the list of currently supported rules:
 - [ansible](#ansible-rule) - controls the execution of
-[Ansible](../plugins/ansible.html) plays;
+  [Ansible](../plugins-v2/ansible.html) plays;
 - [dependency](#dependency-rule) - applies rules to process dependencies;
 - [entity](#entity-rule) - controls creation or update of entities
   such as organizations, projects and secrets;
@@ -106,7 +107,7 @@ the execution of the process.
 ## Ansible Rule
 
 Ansible rules allow you to control the execution of
-[Ansible](../plugins/ansible.html) plays.
+[Ansible](../plugins-v2/ansible.html) plays.
 
 The syntax:
 
